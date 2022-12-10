@@ -1,0 +1,67 @@
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--twitter-background);
+}
+
+.submit_body {
+    flex: 0.5;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.delete_button {
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-top: none;
+    margin-bottom: 5px;
+}
+
+.answer_button {
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-top: none;
+    margin-bottom: 5px;
+}
+
+.delete_button:hover {
+    cursor: pointer;
+}
+
+.answer_button:hover {
+    cursor: pointer;
+}
+
+.submit_headerDescription {
+    font-size: 15px;
+}
+
+.submit_headerText > h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.submit_badge {
+    font-size: 14px !important;
+    color: var(--twitter-color);
+}
+
+.submit_headerSpecial {
+    font-weight: 600;
+    font-size: 12px;
+    color: gray;
+}
+
+.submit_avatar {
+    padding: 15px;
+}
+
+.close {
+    display: none;
+}
