@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Submits from './Submits'
 import db from "../firebase"
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore"; 
-// import FlipMove from 'react-flip-move'
 
 const List = () => {
     const [posts, setPosts] = useState([]);

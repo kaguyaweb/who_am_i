@@ -5,6 +5,7 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import "./Submits.css"
 import { deleteDoc, doc } from "firebase/firestore"
 import db from '../firebase';
+import Vote from "./Vote"
 
 const Submits = forwardRef(
     ({ id, username, answer1, answer2, answer3 }, ref) => {
@@ -37,6 +38,7 @@ const Submits = forwardRef(
                             <p>回答3:{answer3}</p>
                         </div>
                     </div>
+                    <Vote />
                     <div align="right">
                         <button className='answer_button' onClick={Open_or_Close}>
                             <LockOpenIcon fontSize='small' />
@@ -45,7 +47,6 @@ const Submits = forwardRef(
                             <DeleteOutlineIcon fontSize='small' />
                         </button>
                     </div>
-                    
                 </div>
             </div>
         )

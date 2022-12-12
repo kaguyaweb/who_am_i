@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import db from '../firebase';
 import { useState, useEffect } from 'react';
+import "./TextInput.css"
 
 const theme = createTheme();
 
@@ -110,15 +111,24 @@ export default function TextInput() {
               value={answer3}
             //   autoComplete="current-password"
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              disabled={disabled}
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Submit
-            </Button>
+            <div className='button'>
+              <Button
+                variant='outlined'
+                // fullWidth
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Skip
+              </Button>
+              <Button
+                type="submit"
+                // fullWidth
+                variant="contained"
+                disabled={disabled}
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Submit
+              </Button>
+            </div>
           </Box>
         </Box>
       </Container>
