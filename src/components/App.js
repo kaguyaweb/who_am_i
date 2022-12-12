@@ -1,11 +1,11 @@
 import './App.css';
-import SignIn from './TextInput';
+import TextInput from './TextInput';
 import List from './List';
 
 function App() {
   return (
     <div>
-      <SignIn />
+      <TextInput />
       <List />
     </div>
   );
