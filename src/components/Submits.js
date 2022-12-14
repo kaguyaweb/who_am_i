@@ -46,13 +46,13 @@ const Submits = forwardRef(
                     </div>
                     <Vote id={id} posts={posts} labels={labels} data={data}/>
                     <div align="right">
-                        <button className='answer_button' onClick={Open_or_Close}>
+                        <button className='answer_button' onClick={Open_or_Close} title="answer_open">
                             <LockOpenIcon fontSize='small' />
                         </button>
-                        <button className='reset_button' onClick={() => Reset_result(id)}>
+                        <button className='reset_button' onClick={() => Reset_result(id)} title="reset_vote_result">
                             <HighlightOffIcon fontSize='small' />
                         </button>
-                        <button className='delete_button' onClick={() => Delete(id)}>
+                        <button className='delete_button' onClick={() => Delete(id)} title="delete_data">
                             <DeleteOutlineIcon fontSize='small' />
                         </button>
                     </div>

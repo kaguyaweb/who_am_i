@@ -10,10 +10,11 @@ ChartJS.register( CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend
 
 const Vote = ({ id, posts, labels, data }) => {
     const [dt, setData] = useState(data);
+
     useEffect(() => {
         const docRef = doc(db, "posts", id);
         updateDoc(docRef, {username_list: labels, count_list: dt});
-    },[labels, dt])
+    },[dt, id, labels])
     // async
     const count_up = (username) => {
         const index = labels.indexOf(username)
@@ -55,24 +56,13 @@ const Vote = ({ id, posts, labels, data }) => {
         ],
     }
 
-    // 要変更
-    // const [opens, setOpens] = useState('close')
-        
-    // const Open = () => {
-    //     if(opens === 'close') {
-    //         setOpens('open')
-    //     }
-    // }
-
     return (
         <div>
             <select className='name_pulldown' id='name_select'>
                 {option}
             </select>
             <Button variant='outlined' onClick={() => count_up(document.getElementById("name_select").value)}>予想する</Button>
-            <div className="result_chart">
-                <Bar options={chart_options} data={Chartdata} />
-            </div>
+            <Bar options={chart_options} data={Chartdata} />
             
         </div>
     )

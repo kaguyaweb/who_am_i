@@ -121,7 +121,7 @@ export default function TextInput() {
                 // fullWidth
                 sx={{ mt: 3, mb: 2 }}
               >
-                Skip
+                Open
               </Button>
               <Button
                 type="submit"

@@ -29,9 +29,8 @@ const List = () => {
     }
 
     return (
-        <div>
+        <div className='all_answer'>
         {posts.map((post) => (
-            // console.log(post)
             <Submits
                 key={generateRandomString(20)}
                 id={post[0]}
