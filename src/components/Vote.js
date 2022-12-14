@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import db from "../firebase"
 import { doc, updateDoc } from "firebase/firestore"; 
 import Button from '@mui/material/Button';
@@ -10,15 +10,17 @@ ChartJS.register( CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend
 
 const Vote = ({ id, posts, labels, data }) => {
     const [dt, setData] = useState(data);
-
-    const count_up = (async(username, id) => {
-        const index = labels.indexOf(username)
+    useEffect(() => {
         const docRef = doc(db, "posts", id);
+        updateDoc(docRef, {username_list: labels, count_list: dt});
+    },[labels, dt])
+    // async
+    const count_up = (username) => {
+        const index = labels.indexOf(username)
         setData((prevState) =>
-            prevState.map((dt, indx) => (indx === index ? dt + 1 : dt))
+            prevState.map((dat, indx) => (indx === index ? dat + 1 : dat))
         )
-        await updateDoc(docRef, {username_list: labels, count_list: data});
-    })
+    }
 
     const option = posts.map((post)=><option className='name' value={post[1].username}>{post[1].username}</option>)
 
@@ -54,20 +56,20 @@ const Vote = ({ id, posts, labels, data }) => {
     }
 
     // 要変更
-    const [opens, setOpens] = useState('close')
+    // const [opens, setOpens] = useState('close')
         
-    const Open = () => {
-        if(opens === 'close') {
-            setOpens('open')
-        }
-    }
+    // const Open = () => {
+    //     if(opens === 'close') {
+    //         setOpens('open')
+    //     }
+    // }
 
     return (
         <div>
             <select className='name_pulldown' id='name_select'>
                 {option}
             </select>
-            <Button variant='outlined' onClick={() => count_up(document.getElementById("name_select").value, id)}>予想する</Button>
+            <Button variant='outlined' onClick={() => count_up(document.getElementById("name_select").value)}>予想する</Button>
             <div className="result_chart">
                 <Bar options={chart_options} data={Chartdata} />
             </div>

@@ -2,8 +2,9 @@
 import React,{ forwardRef, useState } from 'react'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import "./Submits.css"
-import { deleteDoc, doc } from "firebase/firestore"
+import { deleteDoc, doc, updateDoc } from "firebase/firestore"
 import db from '../firebase';
 import Vote from "./Vote"
 
@@ -21,6 +22,11 @@ const Submits = forwardRef(
 
         const Delete = async(id) => {
             await deleteDoc(doc(db, "posts", id));
+        }
+
+        const Reset_result = (id) => {
+            const docRef = doc(db, "posts", id);
+            updateDoc(docRef, {count_list: data.fill(0)});
         }
 
         return (
@@ -42,6 +48,9 @@ const Submits = forwardRef(
                     <div align="right">
                         <button className='answer_button' onClick={Open_or_Close}>
                             <LockOpenIcon fontSize='small' />
+                        </button>
+                        <button className='reset_button' onClick={() => Reset_result(id)}>
+                            <HighlightOffIcon fontSize='small' />
                         </button>
                         <button className='delete_button' onClick={() => Delete(id)}>
                             <DeleteOutlineIcon fontSize='small' />

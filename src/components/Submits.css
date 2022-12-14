@@ -30,11 +30,23 @@ p {
     margin-bottom: 5px;
 }
 
+.reset_button {
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-top: none;
+    margin-bottom: 5px;
+}
+
 .delete_button:hover {
     cursor: pointer;
 }
 
 .answer_button:hover {
+    cursor: pointer;
+}
+
+.reset_button:hover {
     cursor: pointer;
 }
 
