@@ -38,7 +38,7 @@ const Submits = forwardRef(
                             <p>回答3:{answer3}</p>
                         </div>
                     </div>
-                    <Vote />
+                    <Vote id={id}/>
                     <div align="right">
                         <button className='answer_button' onClick={Open_or_Close}>
                             <LockOpenIcon fontSize='small' />

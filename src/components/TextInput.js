@@ -31,6 +31,7 @@ export default function TextInput() {
       answer1: answer1,
       answer2: answer2,
       answer3: answer3,
+      predict_count: 0,
       timestamp: serverTimestamp(),
     })
     setName('')
