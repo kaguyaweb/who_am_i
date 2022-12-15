@@ -63,7 +63,6 @@ const Vote = ({ id, posts, labels, data }) => {
             </select>
             <Button variant='outlined' onClick={() => count_up(document.getElementById("name_select").value)}>予想する</Button>
             <Bar options={chart_options} data={Chartdata} />
-            
         </div>
     )
 }

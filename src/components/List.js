@@ -30,19 +30,19 @@ const List = () => {
 
     return (
         <div className='all_answer'>
-        {posts.map((post) => (
-            <Submits
-                key={generateRandomString(20)}
-                id={post[0]}
-                username={post[1].username}
-                answer1={post[1].answer1}
-                answer2={post[1].answer2}
-                answer3={post[1].answer3}
-                posts={posts}
-                labels={labels}
-                data={post[1].count_list}
-            />
-        ))}
+            {posts.map((post) => (
+                <Submits
+                    key={generateRandomString(20)}
+                    id={post[0]}
+                    username={post[1].username}
+                    answer1={post[1].answer1}
+                    answer2={post[1].answer2}
+                    answer3={post[1].answer3}
+                    posts={posts}
+                    labels={labels}
+                    data={post[1].count_list}
+                />
+            ))}
         </div>
     )
 }
