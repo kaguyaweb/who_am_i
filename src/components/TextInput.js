@@ -21,7 +21,6 @@ export default function TextInput() {
   const [answer2, setAnswer2] = useState('')
   const [answer3, setAnswer3] = useState('')
   const [disabled, setDisabled] = useState(true)
-  const [count, setCount] = useState([])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,14 +32,13 @@ export default function TextInput() {
       answer2: answer2,
       answer3: answer3,
       username_list: [],
-      count_list: count,
+      count_list: [],
       timestamp: serverTimestamp(),
     })
     setName('')
     setAnswer1('')
     setAnswer2('')
     setAnswer3('')
-    setCount([...count, 0])
   };
 
   useEffect(() => {

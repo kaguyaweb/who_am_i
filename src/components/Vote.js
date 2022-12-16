@@ -10,14 +10,16 @@ ChartJS.register( CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend
 
 const Vote = ({ id, posts, labels, data }) => {
     const [dt, setData] = useState(data);
+    const [name, setName] = useState('')
 
     useEffect(() => {
         const docRef = doc(db, "posts", id);
         updateDoc(docRef, {username_list: labels, count_list: dt});
-    },[dt, id, labels])
+    },[labels])
     // async
     const count_up = (username) => {
         const index = labels.indexOf(username)
+        setName(username+"さん")
         setData((prevState) =>
             prevState.map((dat, indx) => (indx === index ? dat + 1 : dat))
         )
@@ -58,10 +60,11 @@ const Vote = ({ id, posts, labels, data }) => {
 
     return (
         <div>
-            <select className='name_pulldown' id='name_select'>
+            <p>あなたが予想したのは...{name}</p>
+            <select className='name_pulldown' id={`name_select-${id}`}>
                 {option}
             </select>
-            <Button variant='outlined' onClick={() => count_up(document.getElementById("name_select").value)}>予想する</Button>
+            <Button variant='outlined' onClick={() => count_up(document.getElementById(`name_select-${id}`).value)}>予想する</Button>
             <Bar options={chart_options} data={Chartdata} />
         </div>
     )
