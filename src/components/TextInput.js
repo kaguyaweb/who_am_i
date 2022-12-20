@@ -32,7 +32,7 @@ export default function TextInput() {
       answer2: answer2,
       answer3: answer3,
       username_list: [],
-      count_list: [],
+      count_list: [0,0,0],
       timestamp: serverTimestamp(),
     })
     setName('')
