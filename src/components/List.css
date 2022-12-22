@@ -1,0 +1,7 @@
+.answer-show {
+    margin-bottom: 20px;
+}
+.answer-show > p {
+    display: flex;
+    justify-content: center;
+}

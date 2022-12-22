@@ -9,7 +9,7 @@ import db from '../firebase';
 import Vote from "./Vote"
 
 const Submits = forwardRef(
-    ({ id, username, answer1, answer2, answer3, posts, labels, data }, ref) => {
+    ({ id, username, answer1, answer2, answer3, posts, labels, data, answer, setAnswer }, ref) => {
         const [open, setOpen] = useState('close')
         
         const Open_or_Close = () => {
@@ -39,12 +39,12 @@ const Submits = forwardRef(
                             </h3>
                         </div>
                         <div className='submit_headerDescription'>
-                            <p>回答1:{answer1}</p>
-                            <p>回答2:{answer2}</p>
-                            <p>回答3:{answer3}</p>
+                            <p>よく行くお店は？:{answer1}</p>
+                            <p>最近あった嬉しかったことは？:{answer2}</p>
+                            <p>好きな◯◯:{answer3}</p>
                         </div>
                     </div>
-                    <Vote id={id} posts={posts} labels={labels} data={data}/>
+                    <Vote id={id} posts={posts} labels={labels} data={data} answer={answer} setAnswer={setAnswer}/>
                     <div align="right">
                         <button className='answer_button' onClick={Open_or_Close} title="answer_open">
                             <LockOpenIcon fontSize='small' />

@@ -81,7 +81,7 @@ export default function TextInput() {
               required
               fullWidth
               id="text"
-              label="質問1:よく行くお店は？"
+              label="質問1:よく行くお店は？(ジャンルでも店名でも)"
               name="question1"
               onChange={(e) => setAnswer1(e.target.value)}
               value={answer1}

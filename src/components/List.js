@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import Submits from './Submits'
 import db from "../firebase"
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore"; 
+import './List.css'
 
 const List = () => {
     const [posts, setPosts] = useState([]);
     const [labels, setLabels] = useState([]);
+    const [answer, setAnswer] = useState([])
 
     useEffect(() => {
         const postData = collection(db, "posts");
@@ -31,6 +33,11 @@ const List = () => {
     return (
         // {`all_answer-${reveal}`}
         <div className="all-answer">
+            <div className='answer-show'>
+                {answer.map((ans, index) => (
+                    <p key={index}>{index+1}人めの予想は...{ans}さん</p>
+                ))}
+            </div>
             {posts.map((post) => (
                 <Submits
                     key={generateRandomString(20)}
@@ -42,6 +49,8 @@ const List = () => {
                     posts={posts}
                     labels={labels}
                     data={post[1].count_list}
+                    answer={answer}
+                    setAnswer={setAnswer}
                 />
             ))}
         </div>

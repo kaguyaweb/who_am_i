@@ -5,14 +5,13 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import BarChart from './BarChart';
 
-const Vote = ({ id, posts, labels, data }) => {
-    // const [name, setName] = useState('')
+const Vote = ({ id, posts, labels, data, answer, setAnswer }) => {
     const docRef = doc(db, "posts", id);
 
     // async
     const count_up = (username) => {
+        setAnswer([...answer, username])
         const index = labels.indexOf(username)
-        // setName(username+"さん")
         updateDoc(docRef, { username_list: labels, count_list: data.map((dat, indx) => (indx === index ? dat + 1 : dat)) })
     }
 
