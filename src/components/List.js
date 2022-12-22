@@ -6,7 +6,6 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 const List = () => {
     const [posts, setPosts] = useState([]);
     const [labels, setLabels] = useState([]);
-    // const [data, setData] = useState([]);
 
     useEffect(() => {
         const postData = collection(db, "posts");
@@ -30,7 +29,8 @@ const List = () => {
     }
 
     return (
-        <div className='all_answer'>
+        // {`all_answer-${reveal}`}
+        <div className="all-answer">
             {posts.map((post) => (
                 <Submits
                     key={generateRandomString(20)}
@@ -41,7 +41,6 @@ const List = () => {
                     answer3={post[1].answer3}
                     posts={posts}
                     labels={labels}
-                    // data={data}
                     data={post[1].count_list}
                 />
             ))}

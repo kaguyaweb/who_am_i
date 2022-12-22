@@ -11,7 +11,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import db from '../firebase';
 import { useState, useEffect } from 'react';
-import "./TextInput.css"
 
 const theme = createTheme();
 
@@ -47,7 +46,7 @@ export default function TextInput() {
   }, [name,answer1,answer2,answer3]);
 
   return (
-    <ThemeProvider theme={theme} className="text_input">
+    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -86,8 +85,6 @@ export default function TextInput() {
               name="question1"
               onChange={(e) => setAnswer1(e.target.value)}
               value={answer1}
-            //   autoComplete="email"
-            //   autoFocus
             />
             <TextField
               margin="normal"
@@ -99,7 +96,6 @@ export default function TextInput() {
               id="text"
               onChange={(e) => setAnswer2(e.target.value)}
               value={answer2}
-            //   autoComplete="current-password"
             />
             <TextField
               margin="normal"
@@ -111,26 +107,16 @@ export default function TextInput() {
               id="text"
               onChange={(e) => setAnswer3(e.target.value)}
               value={answer3}
-            //   autoComplete="current-password"
             />
-            <div className='button'>
-              <Button
-                variant='outlined'
-                // fullWidth
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Open
-              </Button>
-              <Button
-                type="submit"
-                // fullWidth
-                variant="contained"
-                disabled={disabled}
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Submit
-              </Button>
-            </div>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              disabled={disabled}
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Submit
+            </Button>
           </Box>
         </Box>
       </Container>
