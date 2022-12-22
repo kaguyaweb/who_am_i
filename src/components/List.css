@@ -1,7 +1,16 @@
 .answer-show {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     margin-bottom: 20px;
 }
 .answer-show > p {
     display: flex;
-    justify-content: center;
+    align-items: center;
+}
+
+.list-avatar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

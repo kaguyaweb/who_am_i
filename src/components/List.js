@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react'
 import Submits from './Submits'
 import db from "../firebase"
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore"; 
+import NoteAltIcon from '@mui/icons-material/NoteAlt';
+import Avatar from '@mui/material/Avatar';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import Typography from '@mui/material/Typography';
 import './List.css'
 
 const List = () => {
@@ -34,9 +38,23 @@ const List = () => {
         // {`all_answer-${reveal}`}
         <div className="all-answer">
             <div className='answer-show'>
+                <Avatar sx={{ m: 1, mt: 3, bgcolor: 'info.main' }}>
+                    <NoteAltIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                    あなたの予想
+                </Typography>
                 {answer.map((ans, index) => (
-                    <p key={index}>{index+1}人めの予想は...{ans}さん</p>
+                    <p key={index}>{index+1}人目の予想は...{ans}さん</p>
                 ))}
+            </div>
+            <div className='list-avatar'>
+                <Avatar sx={{ m: 1, mt: 3, bgcolor: 'success.main' }}>
+                    <FormatListNumberedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                    みんなの回答
+                </Typography>
             </div>
             {posts.map((post) => (
                 <Submits
