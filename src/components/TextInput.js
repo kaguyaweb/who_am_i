@@ -81,7 +81,7 @@ export default function TextInput() {
               required
               fullWidth
               id="text"
-              label="質問1"
+              label="質問1:よく行くお店は？"
               name="question1"
               onChange={(e) => setAnswer1(e.target.value)}
               value={answer1}
@@ -91,7 +91,7 @@ export default function TextInput() {
               required
               fullWidth
               name="question2"
-              label="質問2"
+              label="質問2:最近あった嬉しかったことは？"
               type="text"
               id="text"
               onChange={(e) => setAnswer2(e.target.value)}
@@ -102,7 +102,7 @@ export default function TextInput() {
               required
               fullWidth
               name="question3"
-              label="質問3"
+              label="質問3:好きな◯◯"
               type="text"
               id="text"
               onChange={(e) => setAnswer3(e.target.value)}
